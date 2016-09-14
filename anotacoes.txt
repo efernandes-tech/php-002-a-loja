@@ -1,0 +1,1 @@
+1 - Não é preciso colocar o "mysqli_close()" pq o PHP sabe se virar sozinho.
