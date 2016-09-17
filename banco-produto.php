@@ -12,9 +12,9 @@ function listaProdutos($conexao) {
     return $produtos;
 }
 
-function insereProduto($conexao, $nome, $preco) {
+function insereProduto($conexao, $nome, $preco, $descricao) {
 	// Interpolar string e variavel usando o { }.
-    $query = "INSERT INTO produtos (nome, preco) VALUES ('{$nome}', '{$preco}')";
+    $query = "INSERT INTO produtos (nome, preco, descricao) VALUES ('{$nome}', '{$preco}', '{$descricao}')";
 
     $resultadoDaInsercao = mysqli_query($conexao, $query);
 

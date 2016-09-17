@@ -2,7 +2,7 @@
 include("conecta.php");
 include("banco-produto.php");
 
-$id = $_GET['id'];
+$id = $_POST['id'];
 removeProduto($conexao, $id);
 
 // Pagina que o browser deve redirecionar.
