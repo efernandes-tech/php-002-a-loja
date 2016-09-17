@@ -1,6 +1,7 @@
-<?php
+<?php include("cabecalho.php"); ?>
+<?php include("conecta.php"); ?>
 
-include("cabecalho.php");
+<?php
 
 function insereProduto($conexao, $nome, $preco) {
 	// Interpolar string e variavel usando o { }.
@@ -10,8 +11,6 @@ function insereProduto($conexao, $nome, $preco) {
 
     return $resultadoDaInsercao;
 }
-
-$conexao = mysqli_connect("localhost", "root", "usbw", "php-004-loja");
 
 $nome = $_GET["nome"];
 $preco = $_GET["preco"];
@@ -29,6 +28,6 @@ if (insereProduto($conexao, $nome, $preco)) {
 
 mysqli_close($conexao);
 
-include("rodape.php");
-
 ?>
+
+<?php include("rodape.php"); ?>
