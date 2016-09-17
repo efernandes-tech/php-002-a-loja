@@ -1,16 +1,8 @@
 <?php include("cabecalho.php"); ?>
 <?php include("conecta.php"); ?>
+<?php include("banco-produto.php"); ?>
 
 <?php
-
-function insereProduto($conexao, $nome, $preco) {
-	// Interpolar string e variavel usando o { }.
-    $query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
-
-    $resultadoDaInsercao = mysqli_query($conexao, $query);
-
-    return $resultadoDaInsercao;
-}
 
 $nome = $_GET["nome"];
 $preco = $_GET["preco"];
@@ -26,6 +18,7 @@ if (insereProduto($conexao, $nome, $preco)) {
 <?php
 }
 
+// Nao e necessario, o PHP fecha automaticamente.
 mysqli_close($conexao);
 
 ?>

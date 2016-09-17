@@ -1,0 +1,22 @@
+<?php
+function listaProdutos($conexao) {
+    $produtos = array();
+
+    $resultado = mysqli_query($conexao, "SELECT * FROM produtos");
+
+    while($produto = mysqli_fetch_assoc($resultado)) {
+    	// Funcao inseri no final do array.
+        array_push($produtos, $produto);
+    }
+
+    return $produtos;
+}
+
+function insereProduto($conexao, $nome, $preco) {
+	// Interpolar string e variavel usando o { }.
+    $query = "INSERT INTO produtos (nome, preco) VALUES ('{$nome}', '{$preco}')";
+
+    $resultadoDaInsercao = mysqli_query($conexao, $query);
+
+    return $resultadoDaInsercao;
+}
