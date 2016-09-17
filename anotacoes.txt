@@ -6,3 +6,9 @@
 	500 - erro no servidor;
 	302 - redireciona ae;
 4 - Sempre use o "die()" após o redirecionamento com "header()" para evitar envio de dados criticos para o navegador.
+6 - Não é uma boa ideia usar GET para adicionar e remover. Pq?
+	6.1 - Limitação de caracteres na URI.
+	6.2 - Plugins que aceleram a navegação, acessam escondido os links no corpo da pagina, para deixar em cache.
+		<a href="remove-produto.php?id=12">Excluir</a>
+	6.3 - GET significa "pegar dados" e não "mudar dados".
+	6.4 - O GET não pode alterar o banco, senão o robo do Google acessa teu site, ae fu&*@.
