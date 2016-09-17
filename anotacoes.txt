@@ -1,14 +1,14 @@
 1 - Não é preciso colocar o "mysqli_close()" pq o PHP sabe se virar sozinho.
 2 - Não fechar blocos PHP (?>) em arquivos só com PHP, evita de o usuário receber espaços em branco inseridos após o fechamento.
 3 - Códigos mais importantes que o servidor devolve para o navegador:
-	200 - tá tudo certo;
-	404 - não achei (Page Not Found);
-	500 - erro no servidor;
-	302 - redireciona ae;
+    200 - tá tudo certo;
+    404 - não achei (Page Not Found);
+    500 - erro no servidor;
+    302 - redireciona ae;
 4 - Sempre use o "die()" após o redirecionamento com "header()" para evitar envio de dados criticos para o navegador.
 6 - Não é uma boa ideia usar GET para adicionar e remover. Pq?
-	6.1 - Limitação de caracteres na URI.
-	6.2 - Plugins que aceleram a navegação, acessam escondido os links no corpo da pagina, para deixar em cache.
-		<a href="remove-produto.php?id=12">Excluir</a>
-	6.3 - GET significa "pegar dados" e não "mudar dados".
-	6.4 - O GET não pode alterar o banco, senão o robo do Google acessa teu site, ae fu&*@.
+    6.1 - Limitação de caracteres na URI.
+    6.2 - Plugins que aceleram a navegação, acessam escondido os links no corpo da pagina, para deixar em cache.
+        <a href="remove-produto.php?id=12">Excluir</a>
+    6.3 - GET significa "pegar dados" e não "mudar dados".
+    6.4 - O GET não pode alterar o banco, senão o robo do Google acessa teu site, ae fu&*@.
