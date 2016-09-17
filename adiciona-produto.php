@@ -13,7 +13,7 @@ if (insereProduto($conexao, $nome, $preco, $descricao)) {
     <p class="text-success">Produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!</p>
 <?php
 } else {
-	$msg = mysqli_error($conexao);
+    $msg = mysqli_error($conexao);
 ?>
     <p class="text-danger">O produto <?= $nome; ?> não foi adicionado: <?= $msg; ?></p>
 <?php
