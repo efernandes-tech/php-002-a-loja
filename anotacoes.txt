@@ -12,3 +12,6 @@
         <a href="remove-produto.php?id=12">Excluir</a>
     6.3 - GET significa "pegar dados" e não "mudar dados".
     6.4 - O GET não pode alterar o banco, senão o robo do Google acessa teu site, ae fu&*@.
+7 - No PHP só duas strings são falsas:
+    "0" e ""
+    7.1 - O "false" é true.
