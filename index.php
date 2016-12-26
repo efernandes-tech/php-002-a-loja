@@ -3,18 +3,21 @@
 <h1>Bem vindo!</h1>
 
 <?php
-if (isset($_GET["login"]) && $_GET["login"] == true) {
+// if (isset($_GET["login"]) && $_GET["login"] == true) {
+if (isset($_COOKIE["usuario_logado"])) {
 ?>
-    <p class="alert-success">Logado com sucesso!</p>
+    <p class="alert-success">
+        Você está logado como <?php echo $_COOKIE["usuario_logado"]; ?>
+    </p>
 <?php
-}
+} else {
 ?>
 <?php
-if (isset($_GET["login"]) && $_GET["login"] == false) {
+// if (isset($_GET["login"]) && $_GET["login"] == false) {
 ?>
-<p class="alert-danger">Usuário ou senha inválida!</p>
+<!-- <p class="alert-danger">Usuário ou senha inválida!</p> -->
 <?php
-}
+// }
 ?>
 
 <h2>Login</h2>
@@ -34,5 +37,9 @@ if (isset($_GET["login"]) && $_GET["login"] == false) {
         </tr>
     </table>
 </form>
+
+<?php
+}
+?>
 
 <?php include("rodape.php"); ?>
