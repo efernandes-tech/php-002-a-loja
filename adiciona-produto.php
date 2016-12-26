@@ -1,3 +1,11 @@
+<?php
+
+include("logica-usuario.php");
+
+verificaUsuario();
+
+?>
+
 <?php include("cabecalho.php"); ?>
 <?php include("conecta.php"); ?>
 <?php include("banco-produto.php"); ?>
