@@ -3,7 +3,6 @@
 <h1>Bem vindo!</h1>
 
 <?php
-// if (isset($_GET["login"]) && $_GET["login"] == true) {
 if (isset($_COOKIE["usuario_logado"])) {
 ?>
     <p class="alert-success">
@@ -11,13 +10,6 @@ if (isset($_COOKIE["usuario_logado"])) {
     </p>
 <?php
 } else {
-?>
-<?php
-// if (isset($_GET["login"]) && $_GET["login"] == false) {
-?>
-<!-- <p class="alert-danger">Usuário ou senha inválida!</p> -->
-<?php
-// }
 ?>
 
 <h2>Login</h2>
