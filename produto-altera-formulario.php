@@ -3,6 +3,9 @@ include("cabecalho.php");
 include("conecta.php");
 include("banco-categoria.php");
 include("banco-produto.php");
+include("logica-usuario.php");
+
+verificaUsuario();
 
 $id = $_GET['id'];
 $produto = buscaProduto($conexao, $id);
