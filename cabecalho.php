@@ -1,3 +1,8 @@
+<?php
+// Visualiza todos os erros, exceto os avisos.
+error_reporting(E_ALL ^ E_NOTICE);
+include("mostra-alerta.php");
+?>
 <html>
 <head>
     <title>Minha loja</title>
@@ -25,3 +30,6 @@
     <div class="container">
 
         <div class="principal">
+
+            <?php mostraAlerta("success"); ?>
+            <?php mostraAlerta("danger"); ?>

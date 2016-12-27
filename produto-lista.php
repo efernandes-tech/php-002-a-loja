@@ -8,15 +8,6 @@ include("logica-usuario.php");
 ?>
 
 <?php
-if (isset($_SESSION["success"])) {
-?>
-    <p class="alert-success"><?php echo $_SESSION["success"]; ?></p>
-<?php
-    unset($_SESSION["success"]);
-}
-?>
-
-<?php
 $produtos = listaProdutos($conexao);
 ?>
 

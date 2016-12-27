@@ -5,26 +5,6 @@ include("logica-usuario.php");
 
 ?>
 
-<?php
-if (isset($_SESSION["danger"])) {
-?>
-    <p class="alert-danger"><?php echo $_SESSION["danger"]; ?></p>
-<?php
-    // Remover a variavel da sessao.
-    unset($_SESSION["danger"]);
-}
-?>
-
-<?php
-if (isset($_SESSION["success"])) {
-?>
-    <p class="alert-success"><?php echo $_SESSION["success"]; ?></p>
-<?php
-    // Remover a variavel da sessao.
-    unset($_SESSION["success"]);
-}
-?>
-
 <h1>Bem vindo!</h1>
 
 <?php
