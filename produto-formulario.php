@@ -1,12 +1,11 @@
 <?php
 
-include("logica-usuario.php");
-
-verificaUsuario();
-
 include("cabecalho.php");
 include("conecta.php");
 include("banco-categoria.php");
+include("logica-usuario.php");
+
+verificaUsuario();
 
 $categorias = listaCategorias($conexao);
 
@@ -40,7 +39,7 @@ $categorias = listaCategorias($conexao);
                     <option value="<?=$categoria['id']?>">
                         <?=$categoria['nome']?>
                     </option>
-                <?php endforeach ?>
+                <?php endforeach; ?>
                 </select>
             </td>
         </tr>

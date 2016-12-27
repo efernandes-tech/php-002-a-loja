@@ -1,16 +1,11 @@
 <?php
 
+include("cabecalho.php");
+include("conecta.php");
+include("banco-produto.php");
 include("logica-usuario.php");
 
 verificaUsuario();
-
-?>
-
-<?php include("cabecalho.php"); ?>
-<?php include("conecta.php"); ?>
-<?php include("banco-produto.php"); ?>
-
-<?php
 
 $nome = $_POST["nome"];
 $preco = $_POST["preco"];
@@ -24,18 +19,22 @@ if(array_key_exists('usado', $_POST)) {
 
 if (insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado)) {
 ?>
-    <p class="text-success">Produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!</p>
+    <p class="text-success">
+        Produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!
+    </p>
 <?php
 } else {
     $msg = mysqli_error($conexao);
 ?>
-    <p class="text-danger">O produto <?= $nome; ?> não foi adicionado: <?= $msg; ?></p>
+    <p class="text-danger">
+        O produto <?= $nome; ?> não foi adicionado: <?= $msg; ?>
+    </p>
 <?php
 }
 
-// Nao e necessario, o PHP fecha automaticamente.
+// Nao e necessario, o PHP fecha automaticamente a conexao.
 mysqli_close($conexao);
 
-?>
+include("rodape.php");
 
-<?php include("rodape.php"); ?>
+?>

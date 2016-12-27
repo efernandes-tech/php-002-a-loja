@@ -1,8 +1,12 @@
-<?php include("cabecalho.php"); ?>
-<?php include("conecta.php"); ?>
-<?php include("banco-produto.php"); ?>
-
 <?php
+
+include("cabecalho.php");
+include("conecta.php");
+include("banco-produto.php");
+
+include("logica-usuario.php");
+
+verificaUsuario();
 
 $id = $_POST['id'];
 $nome = $_POST["nome"];
@@ -26,7 +30,7 @@ if (alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usad
 <?php
 }
 
-// Nao e necessario, o PHP fecha automaticamente.
+// Nao e necessario, o PHP fecha automaticamente a conexao.
 mysqli_close($conexao);
 
 ?>
