@@ -1,7 +1,7 @@
 <?php include("cabecalho.php"); ?>
 
 <?php
-if (isset($_GET["falhaDeSeguranca"])) {
+if (isset($_GET["falhaDeSeguranca"]) && $_GET["falhaDeSeguranca"] == true) {
 ?>
     <p class="alert-danger">Você não tem acesso a esta funcionalidade!</p>
 <?php
