@@ -19,3 +19,7 @@
 9 - É possivel criar na mão o escopo de flash que são mensagens exibidas na proxima requisicao e deletadas da sessao.
 10 - SQL injection:
     ' or id=1  or 'guilherme'='
+11 - Diferença:
+    11.1 - O "include" se não acha o arquivo gera uma WARNING.
+    11.2 - O "require" se não acha o arquivo gera um ERROR.
+    11.3 - O "require_once" inclui o arquivo uma vez so.
