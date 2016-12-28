@@ -1,5 +1,7 @@
 <?php
 
+require_once("conecta.php");
+
 function buscaUsuario($conexao, $email, $senha) {
     // Criptografa a senha recebida para verificar com a senha criptografada no banco.
     $senhaMd5 = md5($senha);
