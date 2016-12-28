@@ -1,9 +1,9 @@
 <?php
 
-include("cabecalho.php");
+require_once("cabecalho.php");
 
-include("banco-produto.php");
-include("logica-usuario.php");
+require_once("banco-produto.php");
+require_once("logica-usuario.php");
 
 $produtos = listaProdutos($conexao);
 
@@ -33,4 +33,4 @@ $produtos = listaProdutos($conexao);
     ?>
 </table>
 
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>
