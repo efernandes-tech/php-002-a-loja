@@ -1,10 +1,10 @@
 <?php
 
-include("cabecalho.php");
+require_once("cabecalho.php");
 
-include("banco-produto.php");
+require_once("banco-produto.php");
 
-include("logica-usuario.php");
+require_once("logica-usuario.php");
 
 verificaUsuario();
 
@@ -37,6 +37,6 @@ if (insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado)) {
 // Nao e necessario, o PHP fecha automaticamente a conexao.
 mysqli_close($conexao);
 
-include("rodape.php");
+require_once("rodape.php");
 
 ?>
