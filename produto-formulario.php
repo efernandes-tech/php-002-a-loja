@@ -10,7 +10,7 @@ verificaUsuario();
 
 $categorias = listaCategorias($conexao);
 
-$produtos = array();
+
 
 $produto = array("nome" => "", "descricao" => "", "preco" => "", "categoria_id" => "1");
 
