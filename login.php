@@ -1,8 +1,8 @@
 <?php
 
-include("conecta.php");
-include("banco-usuario.php");
 include("logica-usuario.php");
+
+include("banco-usuario.php");
 
 $usuario = buscaUsuario($conexao, $_POST["email"], $_POST["senha"]);
 

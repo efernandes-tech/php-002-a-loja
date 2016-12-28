@@ -1,22 +1,18 @@
 <?php
 
 include("cabecalho.php");
-include("conecta.php");
+
 include("banco-produto.php");
 include("logica-usuario.php");
 
-?>
-
-<?php
 $produtos = listaProdutos($conexao);
+
 ?>
 
 <table class="table table-striped table-bordered">
-
     <?php
     foreach($produtos as $produto) :
     ?>
-
         <tr>
             <td><?= $produto['nome'] ?></td>
             <td><?= $produto['preco'] ?></td>
@@ -32,7 +28,6 @@ $produtos = listaProdutos($conexao);
                 </form>
             </td>
         </tr>
-
     <?php
     endforeach;
     ?>
