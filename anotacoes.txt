@@ -17,3 +17,5 @@
     7.1 - O "false" é true.
 8 - Quando um cookie é setado com tempo, ele expira somente depois de passado o tempo, mesmo se for fechado o browser.
 9 - É possivel criar na mão o escopo de flash que são mensagens exibidas na proxima requisicao e deletadas da sessao.
+10 - SQL injection:
+    ' or id=1  or 'guilherme'='
