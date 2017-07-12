@@ -32,6 +32,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `senha` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+/*Senha:12345*/
+INSERT INTO `usuarios` (`id`, `email`, `senha`) VALUES
+(NULL, 'teste@teste.com', '827ccb0eea8a706c4c34a16891f84e7b');
+
+INSERT INTO `categorias` (`id`, `nome`) VALUES
+(NULL, 'Games'),
+(NULL, 'Livros'),
+(NULL, 'Celulares');
+
 SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
