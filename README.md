@@ -4,8 +4,8 @@
 1 - ...
 
 ##### Anotações Estruturado:
-1 - Não é preciso colocar o "mysqli_close()" pq o PHP sabe se virar sozinho.
-2 - Não fechar blocos PHP (?>) em arquivos só com PHP, evita de o usuário receber espaços em branco inseridos após o fechamento.
+- Não é preciso colocar o "mysqli_close()" pq o PHP sabe se virar sozinho.
+- Não fechar blocos PHP (?>) em arquivos só com PHP, evita de o usuário receber espaços em branco inseridos após o fechamento.
 3 - Códigos mais importantes que o servidor devolve para o navegador:
     200 - tá tudo certo;
     404 - não achei (Page Not Found);
