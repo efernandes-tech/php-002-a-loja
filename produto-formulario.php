@@ -1,6 +1,7 @@
 <?php
 
 require_once("cabecalho.php");
+
 require_once("banco-categoria.php");
 
 require_once("logica-usuario.php");
@@ -21,7 +22,7 @@ $usado = "";
 
 <form action="adiciona-produto.php" method="post">
 
-    <table>
+    <table class="table">
         <?php require_once("produto-formulario-base.php"); ?>
         <tr>
             <td><input type="submit" value="Cadastrar" class="btn btn-primary" /></td>
