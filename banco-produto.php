@@ -5,7 +5,8 @@ require_once("conecta.php");
 function listaProdutos($conexao) {
     $produtos = array();
 
-    $resultado = mysqli_query($conexao, "SELECT p.*, c.nome AS categoria_nome FROM produtos AS p JOIN categorias AS c ON p.categoria_id = c.id");
+    $resultado = mysqli_query($conexao, "SELECT p.*, c.nome AS categoria_nome
+        FROM produtos AS p JOIN categorias AS c ON p.categoria_id = c.id");
 
     while($produto = mysqli_fetch_assoc($resultado)) {
         // Funcao inseri no final do array.
@@ -15,7 +16,7 @@ function listaProdutos($conexao) {
     return $produtos;
 }
 
-function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado) {
+function insereProduto($conexao, Produto $produto) {
     // Escapar caracteres especiais.
     $nome = mysqli_real_escape_string($conexao, $nome);
     $preco = mysqli_real_escape_string($conexao, $preco);
@@ -24,7 +25,9 @@ function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usad
     $usado = mysqli_real_escape_string($conexao, $usado);
 
     // Interpolar string e variavel usando o { }.
-    $query = "INSERT INTO produtos (nome, preco, descricao, categoria_id, usado) VALUES ('{$nome}', '{$preco}', '{$descricao}', '{$categoria_id}', '{$usado}')";
+    $query = "INSERT INTO produtos (nome, preco, descricao, categoria_id, usado)
+        VALUES ('{$produto->nome}', '{$produto->preco}', '{$produto->descricao}',
+            '{$produto->categoria_id}', '{$produto->usado}')";
 
     // echo $query;
 
@@ -42,7 +45,8 @@ function alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, 
     $categoria_id = mysqli_real_escape_string($conexao, $categoria_id);
     $usado = mysqli_real_escape_string($conexao, $usado);
 
-    $query = "UPDATE produtos SET nome = '{$nome}', preco = {$preco}, descricao = '{$descricao}', categoria_id= {$categoria_id}, usado = {$usado} WHERE id = '{$id}'";
+    $query = "UPDATE produtos SET nome = '{$nome}', preco = {$preco}, descricao = '{$descricao}',
+        categoria_id= {$categoria_id}, usado = {$usado} WHERE id = '{$id}'";
 
     return mysqli_query($conexao, $query);
 }
