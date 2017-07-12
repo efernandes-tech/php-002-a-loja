@@ -1,9 +1,9 @@
 # php-002-a-loja
 
-##### Anotações OO:
+### Anotações OO:
 - ...
 
-##### Anotações Estruturado:
+### Anotações Estruturado:
 - Não é preciso colocar o "mysqli_close()" pq o PHP sabe se virar sozinho.
 - Não fechar blocos PHP (?>) em arquivos só com PHP, evita de o usuário receber espaços em branco inseridos após o fechamento.
 - Códigos mais importantes que o servidor devolve para o navegador:
