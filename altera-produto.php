@@ -50,3 +50,5 @@ if (alteraProduto($conexao, $produto)) {
 mysqli_close($conexao);
 
 require_once("rodape.php");
+
+?>

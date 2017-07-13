@@ -27,7 +27,7 @@ $produto->usado = $selecao_usado;
 
 <form action="altera-produto.php" method="post">
     <input type="hidden" name="id" value="<?=$produto->id?>" />
-    <table>
+    <table class="table">
         <?php require_once("produto-formulario-base.php"); ?>
         <tr>
             <td><input type="submit" value="Alterar" class="btn btn-primary" /></td>
