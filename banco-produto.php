@@ -2,6 +2,10 @@
 
 require_once("conecta.php");
 
+require_once("class/Produto.php");
+
+require_once("class/Categoria.php");
+
 function listaProdutos($conexao) {
     $produtos = array();
 
@@ -32,13 +36,13 @@ function insereProduto($conexao, Produto $produto) {
     $produto->nome = mysqli_real_escape_string($conexao, $produto->nome);
     $produto->preco = mysqli_real_escape_string($conexao, $produto->preco);
     $produto->descricao = mysqli_real_escape_string($conexao, $produto->descricao);
-    $produto->categoria_id = mysqli_real_escape_string($conexao, $produto->categoria_id);
+    $produto->categoria->id = mysqli_real_escape_string($conexao, $produto->categoria->id);
     $produto->usado = mysqli_real_escape_string($conexao, $produto->usado);
 
     // Interpolar string e variavel usando o { }.
     $query = "INSERT INTO produtos (nome, preco, descricao, categoria_id, usado)
         VALUES ('{$produto->nome}', '{$produto->preco}', '{$produto->descricao}',
-            '{$produto->categoria_id}', '{$produto->usado}')";
+            '{$produto->categoria->id}', '{$produto->usado}')";
 
     // echo $query;
 
@@ -53,11 +57,11 @@ function alteraProduto($conexao, Produto $produto) {
     $produto->nome = mysqli_real_escape_string($conexao, $produto->nome);
     $produto->preco = mysqli_real_escape_string($conexao, $produto->preco);
     $produto->descricao = mysqli_real_escape_string($conexao, $produto->descricao);
-    $produto->categoria_id = mysqli_real_escape_string($conexao, $produto->categoria_id);
+    $produto->categoria->id = mysqli_real_escape_string($conexao, $produto->categoria->id);
     $produto->usado = mysqli_real_escape_string($conexao, $produto->usado);
 
     $query = "UPDATE produtos SET nome = '{$produto->nome}', preco = {$produto->preco},
-        descricao = '{$produto->descricao}', categoria_id= {$produto->categoria_id},
+        descricao = '{$produto->descricao}', categoria_id= {$produto->categoria->id},
             usado = {$produto->usado} WHERE id = '{$produto->id}'";
 
     return mysqli_query($conexao, $query);
