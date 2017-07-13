@@ -6,15 +6,19 @@ require_once("banco-categoria.php");
 
 require_once("logica-usuario.php");
 
+require_once("class/Produto.php");
+
+require_once("class/Categoria.php");
+
 verificaUsuario();
 
 $categorias = listaCategorias($conexao);
 
+$categoria = new Categoria();
+$categoria->id = 1;
 
-
-$produto = array("nome" => "", "descricao" => "", "preco" => "", "categoria_id" => "1");
-
-$usado = "";
+$produto = new Produto();
+$produto->categoria = $categoria;
 
 ?>
 
