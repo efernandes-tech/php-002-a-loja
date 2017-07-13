@@ -1,7 +1,5 @@
 <?php
 
-
-
 require_once("banco-produto.php");
 
 require_once("logica-usuario.php");

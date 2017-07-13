@@ -49,3 +49,5 @@ if (insereProduto($conexao, $produto)) {
 mysqli_close($conexao);
 
 require_once("rodape.php");
+
+?>

@@ -5,10 +5,10 @@ require_once("mostra-alerta.php");
 ?>
 <html>
 <head>
-    <title>Minha loja</title>
     <meta charset="utf-8">
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/loja.css" rel="stylesheet" />
+    <title>Minha Loja</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/loja.css" rel="stylesheet">
 </head>
 
 <body>
