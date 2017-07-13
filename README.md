@@ -1,7 +1,12 @@
 # php-002-a-loja
 
 ### Anotações OO:
-- ...
+- No paradigma procedural o estado e o comportamento não vivem juntos, só concentra comportamento.
+    - Estrutura > função > variavel
+- No paradigma orientado a objetos o estado e o comportamento vivem juntos.
+    - Classe > método > atributo
+
+FAZER EXERCICIOS MAOS A OBRA DA AULA 3
 
 ### Anotações Estruturado:
 - Não é preciso colocar o "mysqli_close()" pq o PHP sabe se virar sozinho.
