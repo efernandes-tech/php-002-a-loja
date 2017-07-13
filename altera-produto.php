@@ -20,6 +20,7 @@ $produto->preco = $_POST["preco"];
 $produto->descricao = $_POST["descricao"];
 
 $categoria = new Categoria();
+
 $categoria->id = $_POST["categoria_id"];
 
 $produto->categoria = $categoria;
