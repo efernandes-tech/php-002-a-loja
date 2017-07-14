@@ -13,9 +13,7 @@ class Produto {
      * @param float $valor 0.1 é o percentual padrão.
      */
     public function precoComDesconto($valor = 0.1) {
-        $this->preco -= $this->preco * $valor;
-
-        return $this->preco;
+        return $this->preco - ($this->preco * $valor);
     }
 
 }
