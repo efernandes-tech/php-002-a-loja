@@ -9,20 +9,23 @@ require_once("class/Categoria.php");
 function listaProdutos($conexao) {
     $produtos = array();
 
-    $resultado = mysqli_query($conexao, "SELECT p.*, c.nome AS categoria_nome
-        FROM produtos AS p JOIN categorias AS c ON p.categoria_id = c.id");
+    $resultado = mysqli_query($conexao,
+        "SELECT p.*, c.nome AS categoria_nome
+        FROM produtos AS p
+        JOIN categorias AS c ON p.categoria_id = c.id"
+    );
 
     while($produto_array = mysqli_fetch_assoc($resultado)) {
         $categoria = new Categoria();
-        $categoria->nome = $produto_array["categoria_nome"];
+        $categoria->setNome($produto_array["categoria_nome"]);
 
         $produto = new Produto();
-        $produto->id = $produto_array["id"];
-        $produto->nome = $produto_array["nome"];
-        $produto->descricao = $produto_array["descricao"];
-        $produto->preco = $produto_array["preco"];
-        $produto->usado = $produto_array["usado"];
-        $produto->categoria = $categoria;
+        $produto->setId($produto_array["id"]);
+        $produto->setNome($produto_array["nome"]);
+        $produto->setDescricao($produto_array["descricao"]);
+        $produto->setPreco($produto_array["preco"]);
+        $produto->setUsado($produto_array["usado"]);
+        $produto->setCategoria($categoria);
 
         // Funcao inseri no final do array.
         array_push($produtos, $produto);
@@ -33,16 +36,19 @@ function listaProdutos($conexao) {
 
 function insereProduto($conexao, Produto $produto) {
     // Escapar caracteres especiais.
-    $produto->nome = mysqli_real_escape_string($conexao, $produto->nome);
-    $produto->preco = mysqli_real_escape_string($conexao, $produto->preco);
-    $produto->descricao = mysqli_real_escape_string($conexao, $produto->descricao);
-    $produto->categoria->id = mysqli_real_escape_string($conexao, $produto->categoria->id);
-    $produto->usado = mysqli_real_escape_string($conexao, $produto->usado);
+    $produto->setNome(mysqli_real_escape_string($conexao, $produto->getNome()));
+    $produto->setPreco(mysqli_real_escape_string($conexao, $produto->getPreco()));
+    $produto->setDescricao(mysqli_real_escape_string($conexao, $produto->getDescricao()));
+    $produto->getCategoria()->setId(mysqli_real_escape_string($conexao, $produto->getCategoria()->getId()));
+    $produto->setUsado(mysqli_real_escape_string($conexao, $produto->getUsado()));
 
     // Interpolar string e variavel usando o { }.
-    $query = "INSERT INTO produtos (nome, preco, descricao, categoria_id, usado)
-        VALUES ('{$produto->nome}', '{$produto->preco}', '{$produto->descricao}',
-            '{$produto->categoria->id}', '{$produto->usado}')";
+    $query = "INSERT INTO produtos (nome, preco, descricao, categoria_id, usado) VALUES (
+            '{$produto->getNome()}',
+            '{$produto->getPreco()}',
+            '{$produto->getDescricao()}',
+            '{$produto->getCategoria()->getId()}',
+            '{$produto->getUsado()}')";
 
     // echo $query;
 
@@ -53,16 +59,20 @@ function insereProduto($conexao, Produto $produto) {
 
 function alteraProduto($conexao, Produto $produto) {
     // Escapar caracteres especiais.
-    $produto->id = mysqli_real_escape_string($conexao, $produto->id);
-    $produto->nome = mysqli_real_escape_string($conexao, $produto->nome);
-    $produto->preco = mysqli_real_escape_string($conexao, $produto->preco);
-    $produto->descricao = mysqli_real_escape_string($conexao, $produto->descricao);
-    $produto->categoria->id = mysqli_real_escape_string($conexao, $produto->categoria->id);
-    $produto->usado = mysqli_real_escape_string($conexao, $produto->usado);
+    $produto->setId(mysqli_real_escape_string($conexao, $produto->getId()));
+    $produto->setNome(mysqli_real_escape_string($conexao, $produto->getNome()));
+    $produto->setPreco(mysqli_real_escape_string($conexao, $produto->getPreco()));
+    $produto->setDescricao(mysqli_real_escape_string($conexao, $produto->getDescricao()));
+    $produto->getCategoria()->setId(mysqli_real_escape_string($conexao, $produto->getCategoria()->getId()));
+    $produto->setUsado(mysqli_real_escape_string($conexao, $produto->getUsado()));
 
-    $query = "UPDATE produtos SET nome = '{$produto->nome}', preco = {$produto->preco},
-        descricao = '{$produto->descricao}', categoria_id= {$produto->categoria->id},
-            usado = {$produto->usado} WHERE id = '{$produto->id}'";
+    $query = "UPDATE produtos SET
+        nome = '{$produto->getNome()}',
+        preco = {$produto->getPreco()},
+        descricao = '{$produto->getDescricao()}',
+        categoria_id = {$produto->getCategoria()->getId()},
+        usado = {$produto->getUsado()}
+        WHERE id = '{$produto->getId()}'";
 
     return mysqli_query($conexao, $query);
 }
@@ -87,15 +97,15 @@ function buscaProduto($conexao, $id) {
     $produto_buscado = mysqli_fetch_assoc($resultado);
 
     $categoria = new Categoria();
-    $categoria->id = $produto_buscado["categoria_id"];
+    $categoria->setId($produto_buscado["categoria_id"]);
 
     $produto = new Produto();
-    $produto->id = $produto_buscado["id"];
-    $produto->nome = $produto_buscado["nome"];
-    $produto->descricao = $produto_buscado["descricao"];
-    $produto->preco = $produto_buscado["preco"];
-    $produto->usado = $produto_buscado["usado"];
-    $produto->categoria = $categoria;
+    $produto->setId($produto_buscado["id"]);
+    $produto->setNome($produto_buscado["nome"]);
+    $produto->setDescricao($produto_buscado["descricao"]);
+    $produto->setPreco($produto_buscado["preco"]);
+    $produto->setUsado($produto_buscado["usado"]);
+    $produto->setCategoria($categoria);
 
     return $produto;
 }
