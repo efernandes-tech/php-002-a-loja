@@ -29,35 +29,35 @@ class Produto {
         return $this->nome;
     }
 
-    public function setNome($nome) {
-        $this->nome = $nome;
-    }
+    // public function setNome($nome) {
+    //     $this->nome = $nome;
+    // }
 
     public function getPreco() {
         return $this->preco;
     }
 
-    public function setPreco($preco) {
-        $this->preco = $preco;
-    }
+    // public function setPreco($preco) {
+    //     $this->preco = $preco;
+    // }
 
     public function getDescricao() {
         return $this->descricao;
     }
 
-    public function setDescricao($descricao) {
-        $this->descricao = $descricao;
-    }
+    // public function setDescricao($descricao) {
+    //     $this->descricao = $descricao;
+    // }
 
     public function getCategoria() {
         return $this->categoria;
     }
 
-    public function setCategoria($categoria) {
-        $this->categoria = $categoria;
-    }
+    // public function setCategoria($categoria) {
+    //     $this->categoria = $categoria;
+    // }
 
-    public function getUsado() {
+    public function isUsado() {
         return $this->usado;
     }
 
