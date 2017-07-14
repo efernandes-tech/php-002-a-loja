@@ -36,11 +36,11 @@ function listaProdutos($conexao) {
 
 function insereProduto($conexao, Produto $produto) {
     // Escapar caracteres especiais.
-    $produto->setNome(mysqli_real_escape_string($conexao, $produto->getNome()));
-    $produto->setPreco(mysqli_real_escape_string($conexao, $produto->getPreco()));
-    $produto->setDescricao(mysqli_real_escape_string($conexao, $produto->getDescricao()));
-    $produto->getCategoria()->setId(mysqli_real_escape_string($conexao, $produto->getCategoria()->getId()));
-    $produto->setUsado(mysqli_real_escape_string($conexao, $produto->getUsado()));
+    // $produto->setNome(mysqli_real_escape_string($conexao, $produto->getNome()));
+    // $produto->setPreco(mysqli_real_escape_string($conexao, $produto->getPreco()));
+    // $produto->setDescricao(mysqli_real_escape_string($conexao, $produto->getDescricao()));
+    // $produto->getCategoria()->setId(mysqli_real_escape_string($conexao, $produto->getCategoria()->getId()));
+    // $produto->setUsado(mysqli_real_escape_string($conexao, $produto->isUsado()));
 
     // Interpolar string e variavel usando o { }.
     $query = "INSERT INTO produtos (nome, preco, descricao, categoria_id, usado) VALUES (
@@ -48,7 +48,7 @@ function insereProduto($conexao, Produto $produto) {
             '{$produto->getPreco()}',
             '{$produto->getDescricao()}',
             '{$produto->getCategoria()->getId()}',
-            '{$produto->getUsado()}')";
+            '{$produto->isUsado()}')";
 
     // echo $query;
 
@@ -59,19 +59,19 @@ function insereProduto($conexao, Produto $produto) {
 
 function alteraProduto($conexao, Produto $produto) {
     // Escapar caracteres especiais.
-    $produto->setId(mysqli_real_escape_string($conexao, $produto->getId()));
-    $produto->setNome(mysqli_real_escape_string($conexao, $produto->getNome()));
-    $produto->setPreco(mysqli_real_escape_string($conexao, $produto->getPreco()));
-    $produto->setDescricao(mysqli_real_escape_string($conexao, $produto->getDescricao()));
-    $produto->getCategoria()->setId(mysqli_real_escape_string($conexao, $produto->getCategoria()->getId()));
-    $produto->setUsado(mysqli_real_escape_string($conexao, $produto->getUsado()));
+    // $produto->setId(mysqli_real_escape_string($conexao, $produto->getId()));
+    // $produto->setNome(mysqli_real_escape_string($conexao, $produto->getNome()));
+    // $produto->setPreco(mysqli_real_escape_string($conexao, $produto->getPreco()));
+    // $produto->setDescricao(mysqli_real_escape_string($conexao, $produto->getDescricao()));
+    // $produto->getCategoria()->setId(mysqli_real_escape_string($conexao, $produto->getCategoria()->getId()));
+    // $produto->setUsado(mysqli_real_escape_string($conexao, $produto->isUsado()));
 
     $query = "UPDATE produtos SET
         nome = '{$produto->getNome()}',
         preco = {$produto->getPreco()},
         descricao = '{$produto->getDescricao()}',
         categoria_id = {$produto->getCategoria()->getId()},
-        usado = {$produto->getUsado()}
+        usado = {$produto->isUsado()}
         WHERE id = '{$produto->getId()}'";
 
     return mysqli_query($conexao, $query);
