@@ -5,6 +5,9 @@
     - Estrutura > função > variavel
 - No paradigma orientado a objetos o estado e o comportamento vivem juntos.
     - Classe > método > atributo
+- Comparação entre objetos com:
+    == compara os atributos, e retorna true se todos tiverem o mesmo valor
+    === compara as instancias do objeto, e retorna true se é a mesma instancia
 
 FAZER EXERCICIOS MAOS A OBRA DA AULA 3
 
