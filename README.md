@@ -9,7 +9,7 @@
     == compara os atributos, e retorna true se todos tiverem o mesmo valor
     === compara as instancias do objeto, e retorna true se é a mesma instancia
 
-ASSISTIR VIDEO 1 AULA 1
+VER VIDEO 1 AULA 1
 
 ### Anotações Estruturado:
 - Não é preciso colocar o "mysqli_close()" pq o PHP sabe se virar sozinho.
