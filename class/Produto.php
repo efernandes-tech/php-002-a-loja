@@ -79,6 +79,10 @@ class Produto {
         return $this->nome.": R$ ".$this->preco;
     }
 
+    function __destruct() {
+        echo "<script>console.log('class/Produto.php Destruindo o produto ".$this->getNome()."')</script>";
+    }
+
 }
 
 // arquivo class/Produto.php
