@@ -11,7 +11,7 @@
     <td><textarea name="descricao" class="form-control"><?=$produto->getDescricao()?></textarea></td>
 </tr>
 <?php
-$usado = $produto->getUsado() ? "checked='checked'" : "";
+$usado = $produto->isUsado() ? "checked='checked'" : "";
 ?>
 <tr>
     <td></td>

@@ -18,7 +18,7 @@ $produto = buscaProduto($conexao, $id);
 
 $categorias = listaCategorias($conexao);
 
-$selecao_usado = $produto->getUsado() ? "checked='checked'" : "";
+$selecao_usado = $produto->isUsado() ? "checked='checked'" : "";
 $produto->setUsado($selecao_usado);
 
 ?>
