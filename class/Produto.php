@@ -9,6 +9,12 @@ class Produto {
     public $categoria;
     public $usado;
 
+    public function precoComDesconto($valor) {
+        $this->preco -= $this->preco * $valor;
+
+        return $this->preco;
+    }
+
 }
 
 // arquivo class/Produto.php
