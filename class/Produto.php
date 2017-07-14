@@ -75,6 +75,10 @@ class Produto {
             return $this->preco;
     }
 
+    function __toString() {
+        return $this->nome.": R$ ".$this->preco;
+    }
+
 }
 
 // arquivo class/Produto.php
