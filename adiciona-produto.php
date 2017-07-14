@@ -12,23 +12,20 @@ require_once("class/Categoria.php");
 
 verificaUsuario();
 
-$produto = new Produto();
-
-$produto->setNome($_POST["nome"]);
-$produto->setPreco($_POST["preco"]);
-$produto->setDescricao($_POST["descricao"]);
-
-$categoria = new Categoria();
-
-$categoria->setId($_POST["categoria_id"]);
-
-$produto->setCategoria($categoria);
+$nome = $_POST["nome"];
+$preco = $_POST["preco"];
+$descricao = $_POST["descricao"];
 
 if(array_key_exists("usado", $_POST)) {
-    $produto->setUsado("1");
+    $usado = "1";
 } else {
-    $produto->setUsado("0");
+    $usado = "0";
 }
+
+$categoria = new Categoria();
+$categoria->setId($_POST["categoria_id"]);
+
+$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
 
 if (insereProduto($conexao, $produto)) {
 ?>
