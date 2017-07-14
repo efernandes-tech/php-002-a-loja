@@ -2,12 +2,12 @@
 
 class Produto {
 
-    public $id;
-    public $nome;
-    public $preco;
-    public $descricao;
-    public $categoria;
-    public $usado;
+    private $id;
+    private $nome;
+    private $preco;
+    private $descricao;
+    private $categoria;
+    private $usado;
 
     /**
      * @param float $valor 0.1 é o percentual padrão.
