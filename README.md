@@ -8,6 +8,13 @@
 - Comparação entre objetos com:
     == compara os atributos, e retorna true se todos tiverem o mesmo valor
     === compara as instancias do objeto, e retorna true se é a mesma instancia
+- Cada classe em um arquivo e com os nomes iguais
+    Produto.php / class Produto {}
+- O PHP 5 possui o autoload (para estrategias de fallback), onde vc cria uma função para carregar as classes, assim não precisa espalhar requere_once() pelo arquivo, basta adicionar no inicio:
+    function carregaClasse($nomeDaClasse) {
+        require_once("class/".$nomeDaClasse.".php");
+    }
+    spl_autoload_register("carregaClasse");
 
 VER VIDEO 1 AULA 1
 
