@@ -113,3 +113,5 @@ class ProdutoDao {
     }
 
 }
+
+// class/ProdutoDAO.php
