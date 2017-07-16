@@ -1,5 +1,7 @@
 <?php
 
+// DEPRACATED
+
 require_once("conecta.php");
 
 require_once("class/Produto.php");
