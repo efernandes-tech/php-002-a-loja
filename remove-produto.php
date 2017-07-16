@@ -1,14 +1,16 @@
 <?php
 
-require_once("banco-produto.php");
-
 require_once("logica-usuario.php");
 
 verificaUsuario();
 
+require_once("banco-produto.php");
+
 $id = $_POST['id'];
 
-removeProduto($conexao, $id);
+$produtoDAO = new ProdutoDAO($conexao);
+
+$produtoDAO->removeProduto($id);
 
 $_SESSION["success"] = "Produto removido com sucesso.";
 

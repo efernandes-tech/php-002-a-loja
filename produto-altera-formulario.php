@@ -2,21 +2,19 @@
 
 require_once("cabecalho.php");
 
-require_once("banco-categoria.php");
-
-require_once("banco-produto.php");
-
 require_once("logica-usuario.php");
-
-require_once("class/Produto.php");
 
 verificaUsuario();
 
 $id = $_GET['id'];
 
-$produto = buscaProduto($conexao, $id);
+$produtoDAO = new ProdutoDAO($conexao);
 
-$categorias = listaCategorias($conexao);
+$produto = $produtoDAO->buscaProduto($id);
+
+$categoriaDAO = new CategoriaDAO($conexao);
+
+$categorias = $categoriaDAO->listaCategorias();
 
 $selecao_usado = $produto->isUsado() ? "checked='checked'" : "";
 $produto->setUsado($selecao_usado);
