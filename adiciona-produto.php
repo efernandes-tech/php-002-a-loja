@@ -2,13 +2,7 @@
 
 require_once("cabecalho.php");
 
-require_once("banco-produto.php");
-
 require_once("logica-usuario.php");
-
-require_once("class/Produto.php");
-
-require_once("class/Categoria.php");
 
 verificaUsuario();
 
@@ -27,7 +21,9 @@ $categoria->setId($_POST["categoria_id"]);
 
 $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
 
-if (insereProduto($conexao, $produto)) {
+$produtoDAO = new ProdutoDAO($conexao);
+
+if ($produtoDAO->insereProduto($produto)) {
 ?>
     <p class="text-success">
         Produto <?= $produto->getNome(); ?>, <?= $produto->getPreco(); ?> adicionado com sucesso!
