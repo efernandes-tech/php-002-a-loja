@@ -3,6 +3,9 @@ function carregaClasse($nomeDaClasse) {
     require_once("class/".$nomeDaClasse.".php");
 }
 
+// Registrando a função.
+spl_autoload_register("carregaClasse");
+
 // Visualiza todos os erros, exceto os avisos.
 error_reporting(E_ALL ^ E_NOTICE);
 
