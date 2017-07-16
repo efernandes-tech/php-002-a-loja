@@ -1,10 +1,15 @@
 <?php
-function carregaClasse($nomeDaClasse) {
-    require_once("class/".$nomeDaClasse.".php");
-}
+// Usando funcao explicita.
+// function carregaClasse($nomeDaClasse) {
+//     require_once("class/".$nomeDaClasse.".php");
+// }
+// // Registrando a função.
+// spl_autoload_register("carregaClasse");
 
-// Registrando a função.
-spl_autoload_register("carregaClasse");
+// Usando funcao implicita, ou função anônimas e tmb chamadas de closures.
+spl_autoload_register(function($nomeDaClasse) {
+    require_once("class/".$nomeDaClasse.".php");
+});
 
 // Visualiza todos os erros, exceto os avisos.
 error_reporting(E_ALL ^ E_NOTICE);
