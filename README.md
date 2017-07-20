@@ -17,7 +17,7 @@
     spl_autoload_register("carregaClasse");
 - Para encapsular os métodos de acesso ao banco de dados, é comum usar o padrão de projeto (design pattern) data access object (DAO), onde vc cria um classe para isto.
 
-VER VIDEO 1 AULA 3
+FAZER EXERCICIOS DA AULA 3
 
 ### Anotações Estruturado:
 - Não é preciso colocar o "mysqli_close()" pq o PHP sabe se virar sozinho.
