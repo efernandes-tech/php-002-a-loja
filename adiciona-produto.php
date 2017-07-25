@@ -28,7 +28,7 @@ if ($tipoProduto == "Livro") {
     $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
 }
 
-$produtoDao = new ProdutoDao($conexao);
+$produtoDAO = new produtoDAO($conexao);
 
 if ($produtoDAO->insereProduto($produto)) {
 ?>

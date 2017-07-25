@@ -4,7 +4,7 @@ require_once("cabecalho.php");
 
 require_once("logica-usuario.php");
 
-$produtoDAO = new ProdutoDAO($conexao);
+$produtoDAO = new produtoDAO($conexao);
 
 $produtos = $produtoDAO->listaProdutos();
 
