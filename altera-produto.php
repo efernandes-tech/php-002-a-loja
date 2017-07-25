@@ -6,9 +6,14 @@ require_once("logica-usuario.php");
 
 verificaUsuario();
 
+$categoria = new Categoria();
+$categoria->setId($_POST["categoria_id"]);
+
 $nome = $_POST["nome"];
 $preco = $_POST["preco"];
 $descricao = $_POST["descricao"];
+$isbn = $_POST['isbn'];
+$tipoProduto = $_POST['tipoProduto'];
 
 if(array_key_exists("usado", $_POST)) {
     $usado = "1";
@@ -16,13 +21,16 @@ if(array_key_exists("usado", $_POST)) {
     $usado = "0";
 }
 
-$categoria = new Categoria();
-$categoria->setId($_POST["categoria_id"]);
+if ($tipoProduto == "Livro") {
+    $produto = new Livro($nome, $preco, $descricao, $categoria, $usado);
+    $produto->setIsbn($isbn);
+} else {
+    $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+}
 
-$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
-$produto->setId($_POST["id"]);
+$produto->setId($_POST['id']);
 
-$produtoDAO = new ProdutoDAO($conexao);
+$produtoDao = new ProdutoDao($conexao);
 
 if ($produtoDAO->alteraProduto($produto)) {
 ?>
