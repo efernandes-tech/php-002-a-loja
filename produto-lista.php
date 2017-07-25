@@ -18,6 +18,7 @@ $produtos = $produtoDAO->listaProdutos();
             <th>Preço Com Desconto</th>
             <th>Descrição</th>
             <th>Categoria</th>
+            <th>ISBN</th>
             <th>Ação 1</th>
             <th>Ação 2</th>
         </tr>
@@ -32,6 +33,13 @@ $produtos = $produtoDAO->listaProdutos();
             <td>R$ <?= $produto->precoComDesconto(); ?></td>
             <td><?= substr($produto->getDescricao(), 0, 40) ?></td>
             <td><?= $produto->getCategoria()->getNome() ?></td>
+            <td>
+                <?php
+                    if ($produto->temIsbn()) {
+                        echo "ISBN: ".$produto->getIsbn();
+                    }
+                ?>
+            </td>
             <td><a class="btn btn-primary" href="produto-altera-formulario.php?id=<?=$produto->getId()?>">Alterar</a></td>
             <td>
                 <!-- Não remover com link, pois o GET server somente para pegar dados, e tmb pq se o robo do Google acessar esta pagina, ele vai apagar tudo. -->
