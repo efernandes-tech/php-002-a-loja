@@ -1,10 +1,10 @@
 <tr>
     <td>Nome</td>
-    <td><input type="text" name="nome" value="<?=$produto->getNome()?>" class="form-control" /></td>
+    <td><input type="text" name="nome" value="<?=$produto->getNome()?>" class="form-control" required="required"/></td>
 </tr>
 <tr>
     <td>Preço</td>
-    <td><input type="number" name="preco" value="<?=$produto->getPreco()?>" class="form-control" /></td>
+    <td><input type="number" name="preco" value="<?=$produto->getPreco()?>" class="form-control" required="required"/></td>
 </tr>
 <tr>
     <td>Descrição</td>

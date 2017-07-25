@@ -28,7 +28,9 @@ $produto = new Produto("", "", "", $categoria, "");
     <table class="table">
         <?php require_once("produto-formulario-base.php"); ?>
         <tr>
-            <td><input type="submit" value="Cadastrar" class="btn btn-primary" /></td>
+            <td colspan="2">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </td>
         </tr>
     </table>
 </form>

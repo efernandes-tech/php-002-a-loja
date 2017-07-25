@@ -24,11 +24,11 @@ if (usuarioEstaLogado()) {
     <table class="table">
         <tr>
             <td>Email</td>
-            <td><input class="form-control" type="email" name="email"></td>
+            <td><input class="form-control" type="email" name="email" required="required"></td>
         </tr>
         <tr>
             <td>Senha</td>
-            <td><input class="form-control" type="password" name="senha"></td>
+            <td><input class="form-control" type="password" name="senha" required="required"></td>
         </tr>
         <tr>
             <td><button type="submit" class="btn btn-primary">Login</button></td>

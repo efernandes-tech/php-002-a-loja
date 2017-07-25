@@ -4,7 +4,8 @@ require_once("logica-usuario.php");
 
 verificaUsuario();
 
-require_once("banco-produto.php");
+require_once("conecta.php");
+require_once("class/ProdutoDAO.php");
 
 $id = $_POST['id'];
 
