@@ -18,16 +18,24 @@ class ProdutoDao {
         );
 
         while($produto_array = mysqli_fetch_assoc($resultado)) {
+            $categoria = new Categoria();
+            $categoria->setNome($produto_array["categoria_nome"]);
+
             $nome = $produto_array["nome"];
             $descricao = $produto_array["descricao"];
             $preco = $produto_array["preco"];
             $usado = $produto_array["usado"];
+            $isbn = $produto_array['isbn'];
+            $tipoProduto = $produto_array['tipoProduto'];
 
-            $categoria = new Categoria();
-            $categoria->setNome($produto_array["categoria_nome"]);
+            if ($tipoProduto == "Livro") {
+                $produto = new Livro($nome, $preco, $descricao, $categoria, $usado);
+                $produto->setIsbn($isbn);
+            } else {
+                $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+            }
 
-            $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
-            $produto->setId($produto_array["id"]);
+            $produto->setId($produto_id);
 
             // Funcao inseri no final do array.
             array_push($produtos, $produto);
@@ -104,7 +112,35 @@ class ProdutoDao {
         return mysqli_query($this->conexao, $query);
     }
 
-    function buscaProduto($id) {
+    function buscaProduto(Produto $produto) {
+        $id = $produto->getId();
+        $query = "SELECT * FROM produtos WHERE id = {$id}";
+        $resultado = mysqli_query($this->conexao, $query);
+        $produto_buscado = mysqli_fetch_assoc($resultado);
+
+        $categoria = new Categoria();
+        $categoria->setId($produto_buscado['categoria_id']);
+
+        $nome = $produto_buscado['nome'];
+        $descricao = $produto_buscado['descricao'];
+        $preco = $produto_buscado['preco'];
+        $usado = $produto_buscado['usado'];
+        $isbn = $produto_buscado['isbn'];
+        $tipoProduto = $produto_buscado['tipoProduto'];
+
+        if ($tipoProduto == "Livro") {
+            $produto = new Livro($nome, $preco, $descricao, $categoria, $usado);
+            $produto->setIsbn($isbn);
+        } else {
+            $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+        }
+
+        $produto->setId($produto_buscado['id']);
+
+        return $produto;
+    }
+
+    /*function buscaProduto($id) {
         // Escapar caracteres especiais.
         $id = mysqli_real_escape_string($this->conexao, $id);
 
@@ -126,7 +162,7 @@ class ProdutoDao {
         $produto->setId($produto_buscado["id"]);
 
         return $produto;
-    }
+    }*/
 
 }
 
