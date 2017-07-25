@@ -8,7 +8,7 @@ verificaUsuario();
 
 $id = $_GET['id'];
 
-$produtoDAO = new ProdutoDAO($conexao);
+$produtoDAO = new produtoDAO($conexao);
 
 $produto = $produtoDAO->buscaProduto($id);
 

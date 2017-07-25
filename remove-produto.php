@@ -5,11 +5,11 @@ require_once("logica-usuario.php");
 verificaUsuario();
 
 require_once("conecta.php");
-require_once("class/ProdutoDAO.php");
+require_once("class/produtoDAO.php");
 
 $id = $_POST['id'];
 
-$produtoDAO = new ProdutoDAO($conexao);
+$produtoDAO = new produtoDAO($conexao);
 
 $produtoDAO->removeProduto($id);
 

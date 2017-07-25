@@ -1,6 +1,6 @@
 <?php
 
-class ProdutoDao {
+class produtoDAO {
 
     private $conexao;
 
@@ -21,6 +21,7 @@ class ProdutoDao {
             $categoria = new Categoria();
             $categoria->setNome($produto_array["categoria_nome"]);
 
+            $produto_id = $produto_array["id"];
             $nome = $produto_array["nome"];
             $descricao = $produto_array["descricao"];
             $preco = $produto_array["preco"];
@@ -112,19 +113,23 @@ class ProdutoDao {
         return mysqli_query($this->conexao, $query);
     }
 
-    function buscaProduto(Produto $produto) {
-        $id = $produto->getId();
+    function buscaProduto($id) {
+        // Escapar caracteres especiais.
+        $id = mysqli_real_escape_string($this->conexao, $id);
+
         $query = "SELECT * FROM produtos WHERE id = {$id}";
+
         $resultado = mysqli_query($this->conexao, $query);
+
         $produto_buscado = mysqli_fetch_assoc($resultado);
 
         $categoria = new Categoria();
-        $categoria->setId($produto_buscado['categoria_id']);
+        $categoria->setId($produto_buscado["categoria_id"]);
 
-        $nome = $produto_buscado['nome'];
-        $descricao = $produto_buscado['descricao'];
-        $preco = $produto_buscado['preco'];
-        $usado = $produto_buscado['usado'];
+        $nome = $produto_buscado["nome"];
+        $preco = $produto_buscado["preco"];
+        $descricao = $produto_buscado["descricao"];
+        $usado = $produto_buscado["usado"];
         $isbn = $produto_buscado['isbn'];
         $tipoProduto = $produto_buscado['tipoProduto'];
 
@@ -140,30 +145,6 @@ class ProdutoDao {
         return $produto;
     }
 
-    /*function buscaProduto($id) {
-        // Escapar caracteres especiais.
-        $id = mysqli_real_escape_string($this->conexao, $id);
-
-        $query = "SELECT * FROM produtos WHERE id = {$id}";
-
-        $resultado = mysqli_query($this->conexao, $query);
-
-        $produto_buscado = mysqli_fetch_assoc($resultado);
-
-        $nome = $produto_buscado["nome"];
-        $preco = $produto_buscado["preco"];
-        $descricao = $produto_buscado["descricao"];
-        $usado = $produto_buscado["usado"];
-
-        $categoria = new Categoria();
-        $categoria->setId($produto_buscado["categoria_id"]);
-
-        $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
-        $produto->setId($produto_buscado["id"]);
-
-        return $produto;
-    }*/
-
 }
 
-// class/ProdutoDAO.php
+// class/produtoDAO.php

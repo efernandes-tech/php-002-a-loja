@@ -30,7 +30,7 @@ if ($tipoProduto == "Livro") {
 
 $produto->setId($_POST['id']);
 
-$produtoDao = new ProdutoDao($conexao);
+$produtoDAO = new produtoDAO($conexao);
 
 if ($produtoDAO->alteraProduto($produto)) {
 ?>
