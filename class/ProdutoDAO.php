@@ -37,6 +37,12 @@ class ProdutoDao {
     }
 
     function insereProduto(Produto $produto) {
+        $isbn = "";
+        if ($produto->temIsbn()) {
+            $isbn = $produto->getIsbn();
+        }
+
+        $tipoProduto = get_class($produto);
         // Escapar caracteres especiais.
         // $produto->setNome(mysqli_real_escape_string($this->conexao, $produto->getNome()));
         // $produto->setPreco(mysqli_real_escape_string($this->conexao, $produto->getPreco()));
@@ -45,12 +51,14 @@ class ProdutoDao {
         // $produto->setUsado(mysqli_real_escape_string($this->conexao, $produto->isUsado()));
 
         // Interpolar string e variavel usando o { }.
-        $query = "INSERT INTO produtos (nome, preco, descricao, categoria_id, usado) VALUES (
+        $query = "INSERT INTO produtos (nome, preco, descricao, categoria_id, usado, isbn, tipoProduto) VALUES (
                 '{$produto->getNome()}',
                 '{$produto->getPreco()}',
                 '{$produto->getDescricao()}',
                 '{$produto->getCategoria()->getId()}',
-                '{$produto->isUsado()}')";
+                '{$produto->isUsado()}',
+                '{$isbn}',
+                '{$tipoProduto}')";
 
         // echo $query;
 
@@ -60,6 +68,12 @@ class ProdutoDao {
     }
 
     function alteraProduto(Produto $produto) {
+        $isbn = "";
+        if ($produto->temIsbn()) {
+            $isbn = $produto->getIsbn();
+        }
+
+        $tipoProduto = get_class($produto);
         // Escapar caracteres especiais.
         // $produto->setId(mysqli_real_escape_string($this->conexao, $produto->getId()));
         // $produto->setNome(mysqli_real_escape_string($this->conexao, $produto->getNome()));
@@ -73,7 +87,9 @@ class ProdutoDao {
             preco = {$produto->getPreco()},
             descricao = '{$produto->getDescricao()}',
             categoria_id = {$produto->getCategoria()->getId()},
-            usado = {$produto->isUsado()}
+            usado = {$produto->isUsado()},
+            isbn = '{$isbn}',
+            tipoProduto = '{$tipoProduto}'
             WHERE id = '{$produto->getId()}'";
 
         return mysqli_query($this->conexao, $query);
