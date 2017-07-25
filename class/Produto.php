@@ -65,6 +65,10 @@ class Produto {
         $this->usado = $usado;
     }
 
+    public function temIsbn() {
+        return $this instanceof Livro;
+    }
+
     /**
      * @param float $valor 0.1 é o percentual padrão.
      */
