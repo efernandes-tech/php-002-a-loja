@@ -4,7 +4,7 @@ class Produto {
 
     private $id;
     private $nome;
-    protected $preco;
+    private $preco;
     private $descricao;
     private $categoria;
     private $usado;
