@@ -15,6 +15,7 @@ $produtos = $produtoDAO->listaProdutos();
         <tr>
             <th>Nome</th>
             <th>Preço</th>
+            <th>Imposto</th>
             <th>Preço Com Desconto</th>
             <th>Descrição</th>
             <th>Categoria</th>
@@ -30,6 +31,7 @@ $produtos = $produtoDAO->listaProdutos();
         <tr>
             <td><?= $produto->getNome() ?></td>
             <td>R$ <?= $produto->getPreco() ?></td>
+            <td><?= $produto->calculaImposto() ?></td>
             <td>R$ <?= $produto->precoComDesconto(); ?></td>
             <td><?= substr($produto->getDescricao(), 0, 40) ?></td>
             <td><?= $produto->getCategoria()->getNome() ?></td>
