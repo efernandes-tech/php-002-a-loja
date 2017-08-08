@@ -59,3 +59,28 @@ $usado = $produto->isUsado() ? "checked='checked'" : "";
             value="<?php if ($produto->temIsbn()) { echo $produto->getIsbn(); } ?>" >
     </td>
 </tr>
+
+<tr>
+    <td>Tipo do produto</td>
+    <td>
+        <select name="tipoProduto" class="form-control">
+            <?php
+            $tipos = array("Produto", "Livro Fisico", "Ebook");
+            foreach($tipos as $tipo) :
+                $tipoSemEspaco = str_replace(' ', '', $tipo);
+                $esseEhOTipo = get_class($produto) == $tipoSemEspaco;
+                $selecaoTipo = $esseEhOTipo ? "selected='selected'" : "";
+            ?>
+                <?php if ($tipo == "Livro Fisico") : ?>
+                    <optgroup label="Livros">
+                <?php endif ?>
+                        <option value="<?=$tipoSemEspaco?>" <?=$selecaoTipo?>>
+                            <?=$tipo?>
+                        </option>
+                <?php if ($tipo == "Ebook") : ?>
+                    </optgroup>
+                <?php endif ?>
+            <?php endforeach ?>
+        </select>
+    </td>
+</tr>
