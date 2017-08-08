@@ -46,3 +46,4 @@ VER VIDEO 1 DA AULA 5
     - O "include" se não acha o arquivo gera uma WARNING.
     - O "require" se não acha o arquivo gera um ERROR.
     - O "require_once" inclui o arquivo uma vez só.
+- Factories ajudam na criação de um objeto que seja complexo e que esse trabalho não seja necessario que o programador saiba como implementar.
