@@ -14,4 +14,4 @@ class Ebook extends Livro {
 
 }
 
-// class/Livro.php
+// class/Ebook.php
