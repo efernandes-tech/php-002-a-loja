@@ -84,3 +84,18 @@ $usado = $produto->isUsado() ? "checked='checked'" : "";
         </select>
     </td>
 </tr>
+
+<tr>
+    <td>WaterMark (caso seja um Ebook)</td>
+    <td>
+        <input type="text" class="form-control" name="waterMark"
+            value="<?php if ($produto->temWaterMark()) { echo $produto->getWaterMark(); } ?>" />
+    </td>
+</tr>
+<tr>
+    <td>Taxa de Impressão (caso seja um Livro Físico)</td>
+    <td>
+        <input type="text" class="form-control" name="taxaImpressao"
+            value="<?php if ($produto->temTaxaImpressao()) { echo $produto->getTaxaImpressao(); } ?>" />
+    </td>
+</tr>

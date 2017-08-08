@@ -43,3 +43,6 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 INSERT INTO `usuarios` (`id`, `email`, `senha`) VALUES
 (NULL, 'teste@teste.com', '827ccb0eea8a706c4c34a16891f84e7b');
 SET FOREIGN_KEY_CHECKS=1;
+
+ALTER TABLE produtos ADD COLUMN waterMark VARCHAR(255);
+ALTER TABLE produtos ADD COLUMN taxaImpressao VARCHAR(255);
