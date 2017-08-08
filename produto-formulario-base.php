@@ -38,33 +38,6 @@ $usado = $produto->isUsado() ? "checked='checked'" : "";
     <td>
         <select name="tipoProduto" class="form-control">
             <?php
-            $tipos = array("Livro", "Produto");
-            foreach($tipos as $tipo) :
-                $esseEhOTipo = get_class($produto) == $tipo;
-                $selecaoTipo = $esseEhOTipo ? "selected='selected'" : "";
-            ?>
-                <option value="<?=$tipo?>" <?=$selecaoTipo?>>
-                    <?=$tipo?>
-                </option>
-            <?php
-            endforeach;
-            ?>
-        </select>
-    </td>
-</tr>
-<tr>
-    <td>ISBN (caso seja um Livro)</td>
-    <td>
-        <input type="text" name="isbn" class="form-control"
-            value="<?php if ($produto->temIsbn()) { echo $produto->getIsbn(); } ?>" >
-    </td>
-</tr>
-
-<tr>
-    <td>Tipo do produto</td>
-    <td>
-        <select name="tipoProduto" class="form-control">
-            <?php
             $tipos = array("Produto", "Livro Fisico", "Ebook");
             foreach($tipos as $tipo) :
                 $tipoSemEspaco = str_replace(' ', '', $tipo);
@@ -82,6 +55,14 @@ $usado = $produto->isUsado() ? "checked='checked'" : "";
                 <?php endif ?>
             <?php endforeach ?>
         </select>
+    </td>
+</tr>
+
+<tr>
+    <td>ISBN (caso seja um Livro)</td>
+    <td>
+        <input type="text" name="isbn" class="form-control"
+            value="<?php if ($produto->temIsbn()) { echo $produto->getIsbn(); } ?>" >
     </td>
 </tr>
 
