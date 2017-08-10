@@ -18,8 +18,6 @@
 - Para encapsular os métodos de acesso ao banco de dados, é comum usar o padrão de projeto (design pattern) data access object (DAO), onde vc cria um classe para isto.
 - Quanta ao uso de protected ou private em heranças, o melhor é não afrouxar o encapsulamento por causa da herança, use o método get.
 
-VER VIDEO 1 DA AULA 6
-
 ### Anotações Estruturado:
 - Não é preciso colocar o "mysqli_close()" pq o PHP sabe se virar sozinho.
 - Não fechar blocos PHP (?>) em arquivos só com PHP, evita de o usuário receber espaços em branco inseridos após o fechamento.
