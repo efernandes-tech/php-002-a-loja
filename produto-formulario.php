@@ -17,7 +17,7 @@ $categorias = listaCategorias($conexao);
 $categoria = new Categoria();
 $categoria->setId(1);
 
-$produto = new Produto("", "", "", $categoria, "");
+$produto = new LivroFisico("", "", "", $categoria, "");
 
 ?>
 

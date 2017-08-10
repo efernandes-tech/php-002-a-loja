@@ -37,23 +37,19 @@ $usado = $produto->isUsado() ? "checked='checked'" : "";
     <td>Tipo do produto</td>
     <td>
         <select name="tipoProduto" class="form-control">
-            <?php
-            $tipos = array("Produto", "Livro Fisico", "Ebook");
-            foreach($tipos as $tipo) :
-                $tipoSemEspaco = str_replace(' ', '', $tipo);
-                $esseEhOTipo = get_class($produto) == $tipoSemEspaco;
-                $selecaoTipo = $esseEhOTipo ? "selected='selected'" : "";
-            ?>
-                <?php if ($tipo == "Livro Fisico") : ?>
-                    <optgroup label="Livros">
-                <?php endif ?>
-                        <option value="<?=$tipoSemEspaco?>" <?=$selecaoTipo?>>
-                            <?=$tipo?>
-                        </option>
-                <?php if ($tipo == "Ebook") : ?>
-                    </optgroup>
-                <?php endif ?>
-            <?php endforeach ?>
+            <optgroup label="Livros">
+                <?php
+                $tipos = array("Livro Fisico", "Ebook");
+                foreach($tipos as $tipo) :
+                    $tipoSemEspaco = str_replace(' ', '', $tipo);
+                    $esseEhOTipo = get_class($produto) == $tipoSemEspaco;
+                    $selecaoTipo = $esseEhOTipo ? "selected='selected'" : "";
+                ?>
+                    <option value="<?=$tipoSemEspaco?>" <?=$selecaoTipo?>>
+                        <?=$tipo?>
+                    </option>
+                <?php endforeach; ?>
+            </optgroup>
         </select>
     </td>
 </tr>
