@@ -1,6 +1,6 @@
 <?php
 
-class Produto {
+abstract class Produto {
 
     private $id;
     private $nome;
@@ -91,17 +91,8 @@ class Produto {
         return $this instanceof Ebook;
     }
 
-    public function atualizaBaseadoEm($params) {
-        if ($this->temIsbn()) {
-            $this->setIsbn($params["isbn"]);
-        }
-        if ($this->temWaterMark()) {
-            $this->setWaterMark($params["waterMark"]);
-        }
-        if ($this->temTaxaImpressao()) {
-            $this->setTaxaImpressao($params["taxaImpressao"]);
-        }
-    }
+    // Todas as classe filhas precisam implementar este metodo.
+    abstract function atualizaBaseadoEm($params);
 
     function __toString() {
         return $this->nome.": R$ ".$this->preco;
