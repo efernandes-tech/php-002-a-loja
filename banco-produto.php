@@ -26,7 +26,7 @@ function listaProdutos($conexao) {
         $categoria = new Categoria();
         $categoria->setNome($produto_array["categoria_nome"]);
 
-        $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+        $produto = new LivroFisico($nome, $preco, $descricao, $categoria, $usado);
         $produto->setId($produto_array["id"]);
 
         // Funcao inseri no final do array.
@@ -106,7 +106,7 @@ function buscaProduto($conexao, $id) {
     $categoria = new Categoria();
     $categoria->setId($produto_buscado["categoria_id"]);
 
-    $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+    $produto = new LivroFisico($nome, $preco, $descricao, $categoria, $usado);
     $produto->setId($produto_buscado["id"]);
 
     return $produto;
